@@ -13,7 +13,8 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     @IBAction func actionAdd(_ sender: Any)
     {
-        let alertControl = UIAlertController(title: "Action Sheet", message: "Go To Next Screen", preferredStyle: .actionSheet)
+        let alertControl = UIAlertController(title: "Action Sheet", message: "Go To Next Screen", preferredStyle: .actionSheet
+        )
         
         let actionOk = UIAlertAction(title: "Ok", style: .default, handler: nil)
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
