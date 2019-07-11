@@ -8,12 +8,28 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
-
-    override func viewDidLoad() {
+class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    var arrayStudents = ["Tarlochan","Kishore","Nikhil","Tarlochan","Kishore","Nikhil","Tarlochan","Kishore","Nikhil","Tarlochan","Kishore","Nikhil","Tarlochan","Kishore","Nikhil","Tarlochan","Kishore","Nikhil"]
+    @IBOutlet weak var tblDummy: UITableView!
+    
+    override func viewDidLoad()
+    {
+        self.tblDummy.delegate = self
+        self.tblDummy.dataSource = self
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrayStudents.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
+        cell.textLabel?.text = self.arrayStudents[indexPath.row]
+        return cell
     }
     
 

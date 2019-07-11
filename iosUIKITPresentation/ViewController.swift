@@ -14,9 +14,13 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBAction func actionSkip(_ sender: Any)
     {
         let alertControl = UIAlertController(title: "Alert", message: "Do you want to Skip?", preferredStyle: .alert)
-        let actionAdd = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let actionOk = UIAlertAction(title: "Ok", style: .default, handler: {
+            _ -> Void in
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "secondVC") as! SecondViewController
+            self.navigationController?.pushViewController(nextViewController, animated: true)       })
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertControl.addAction(actionAdd)
+        alertControl.addAction(actionOk)
         alertControl.addAction(actionCancel)
         self .present(alertControl , animated: true , completion: nil)
     }
@@ -25,7 +29,11 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         let alertControl = UIAlertController(title: "Action Sheet", message: "What Will You Like To Do?", preferredStyle: .actionSheet
         )
         
-        let actionAdd = UIAlertAction(title: "Add", style: .default, handler: nil)
+        let actionAdd = UIAlertAction(title: "Add", style: .default, handler: {
+            _ -> Void in
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "secondVC") as! SecondViewController
+            self.navigationController?.pushViewController(nextViewController, animated: true)       })
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let actionDelete = UIAlertAction(title: "Delete", style: .destructive, handler: nil)
         
